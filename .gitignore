@@ -1,0 +1,86 @@
+# ---- 操作系统 ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+
+# ---- 编辑器 / IDE ----
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+.idea/
+*.swp
+*.swo
+*.iml
+
+# ---- 环境与密钥（切勿提交）----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+credentials.json
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+htmlcov/
+.coverage
+.coverage.*
+
+# ---- Node.js / 前端 ----
+node_modules/
+.pnpm-store/
+.npm/
+dist/
+build/
+.next/
+.nuxt/
+.output/
+coverage/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- Java / Kotlin ----
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+# ---- Go ----
+bin/
+*.exe
+*.test
+*.out
+
+# ---- 数据与模型产物 ----
+data/raw/
+*.sqlite
+*.sqlite3
+*.db
+*.log
+logs/
+models/
+checkpoints/
+runs/
+wandb/
