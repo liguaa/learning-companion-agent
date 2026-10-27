@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人学习伴侣</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">学</span><div><strong>学习伴侣</strong><small>给思考一点空间</small></div></div>
+      <button class="new-button" id="new-session"><span>＋</span> 新建学习</button>
+      <div class="sidebar-label">最近的学习</div>
+      <nav id="sessions" aria-label="学习会话"></nav>
+      <div class="sidebar-footer"><span class="status-dot"></span> 本地工作空间 <small>你的学习，留在这里</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><button class="menu" id="menu" aria-label="打开会话列表">☰</button><div class="top-title"><span>学习空间</span><strong id="page-title">开始学习</strong></div><nav class="topnav"><button class="active" data-view="chat">学习</button><button data-view="knowledge">知识库</button><button data-view="settings">设置</button></nav></header>
+      <section class="view chat-view" id="chat-view">
+        <div class="conversation" id="conversation" aria-live="polite"></div>
+        <div class="composer-wrap"><div class="composer"><textarea id="input" rows="2" placeholder="写下你的问题、思路，或粘贴代码…" aria-label="学习问题"></textarea><div class="composer-bottom"><span>Enter 发送 · Shift + Enter 换行</span><button id="send" class="send">发送 <span>↑</span></button></div></div><p class="composer-note">学习伴侣会根据你的思路，陪你一步步探索。</p></div>
+      </section>
+      <section class="view content-view hidden" id="knowledge-view"><div class="page-heading"><div><div class="eyebrow">YOUR LIBRARY</div><h1>知识库</h1><p>把笔记和资料放在一起，让每一次提问都有迹可循。</p></div></div><div class="import-box"><div><strong>导入学习资料</strong><p>支持本机的 Markdown 和文本文件。重新导入同一路径可更新资料。</p></div><form id="import-form"><label for="import-path">文件路径</label><div class="inline-form"><input id="import-path" placeholder="例如 D:\notes\python.md" required><button class="primary">导入资料</button></div></form></div><div class="section-heading"><div><h2>已导入的资料</h2><p>资料可供不同学习会话检索。</p></div><span id="doc-count"></span></div><div id="documents"></div><div id="document-detail" class="hidden detail"></div></section>
+      <section class="view content-view hidden" id="settings-view">
+        <div class="page-heading"><div><div class="eyebrow">WORKSPACE</div><h1>工作空间设置</h1><p>配置你的模型服务，让学习从这里开始。</p></div></div>
+        <form id="model-settings" class="model-settings">
+          <h2>模型连接</h2>
+          <div class="settings-field"><label for="model-provider">模型提供方</label><select id="model-provider"><option value="auto">自动识别</option><option value="deepseek">DeepSeek</option><option value="openai">OpenAI / 兼容接口</option></select></div>
+          <div class="settings-field"><label for="model-name">模型名称</label><input id="model-name" required placeholder="填写服务提供方的模型名称" autocomplete="off"></div>
+          <div class="settings-field"><label for="model-url">服务地址 <span>可选</span></label><input id="model-url" type="url" placeholder="留空使用提供方默认地址" autocomplete="off"><small>使用自定义网关时，填写其完整 API 基础地址。</small></div>
+          <div class="settings-field"><label for="model-key">API Key <span id="key-status"></span></label><input id="model-key" type="password" placeholder="填写 API Key" autocomplete="new-password" spellcheck="false"><small>保存到本机 .env 文件；留空保留已有密钥。保存后不回显。</small></div>
+          <p id="settings-error" class="settings-error hidden" role="alert"></p>
+          <div class="settings-actions"><button id="save-settings" class="primary">保存配置</button><span id="settings-result" role="status"></span></div>
+        </form>
+        <h2 class="workspace-heading">本地工作空间</h2><div id="settings-content" class="settings-list"></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast hidden" id="toast" role="status"></div>
+</body>
+</html>

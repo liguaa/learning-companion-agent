@@ -16,6 +16,7 @@ Desktop.ini
 # ---- 环境与密钥（切勿提交）----
 .env
 .env.*
+.env-web-*
 !.env.example
 *.pem
 *.key
@@ -36,6 +37,7 @@ dist/
 .venv/
 venv/
 env/
+agent_env/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -75,12 +77,22 @@ bin/
 
 # ---- 数据与模型产物 ----
 data/raw/
+data/knowledge/
 *.sqlite
 *.sqlite3
 *.db
+*.db-*
+*.sqlite-*
+*.sqlite3-*
 *.log
 logs/
 models/
 checkpoints/
 runs/
 wandb/
+
+# ---- 本地界面验证截图 ----
+/web-preview.png
+/settings-preview.png
+/sandbox-preview.png
+/markdown-preview.png
